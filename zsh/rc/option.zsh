@@ -7,6 +7,9 @@ setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt hist_ignore_space
 
+# ベル音を無効化
+setopt no_beep
+
 # 補正
 setopt correct
 

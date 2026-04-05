@@ -9,5 +9,6 @@ in
   # 編集後は home-manager switch 不要（新しいターミナルを開くだけで反映）
   xdg.configFile = {
     "starship.toml".source = mkLink "starship.toml";
+    "nvim".source = mkLink "nvim";
   };
 }
