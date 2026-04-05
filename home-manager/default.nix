@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     nodejs_24
     neovim
+    nb
   ];
 
   home.sessionPath = [

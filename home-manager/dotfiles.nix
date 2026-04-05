@@ -11,4 +11,9 @@ in
     "starship.toml".source = mkLink "starship.toml";
     "nvim".source = mkLink "nvim";
   };
+
+  # ~/直下のドットファイル
+  home.file = {
+    ".nbrc".source = mkLink "nb/.nbrc";
+  };
 }

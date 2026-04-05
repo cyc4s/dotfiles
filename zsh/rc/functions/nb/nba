@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+# nb add article - URLからタイトルを取得してノートを追加
+# Usage: nba <url>              - タイトル自動取得
+#        nba <title> <url>      - タイトル手動指定
+
+if [ $# -lt 1 ]; then
+  echo "Usage: nba <url>           # Auto-fetch title"
+  echo "       nba <title> <url>   # Manual title"
+  return 1
+fi
+
+local title=""
+local url=""
+
+if [ $# -eq 1 ]; then
+  url="$1"
+  echo "Fetching title from: $url"
+
+  title=$(curl -sL --max-redirs 3 --max-time 5 --compressed "$url" | head -c 512 | perl -0777 -ne 'print $1 if /<title[^>]*>([^<]+)<\/title>/i')
+  title=$(echo "$title" | perl -pe 's/^\s+|\s+$//g; s/\s+/ /g')
+
+  if [ -z "$title" ]; then
+    echo "Error: Could not fetch title from URL"
+    return 1
+  fi
+  echo "Title: $title"
+else
+  title="$1"
+  url="$2"
+fi
+
+local content="# ${title}
+
+参照: [${title}](${url})"
+
+nb add --filename "${title}.md" --content "$content"
+echo "Note created: [${title}](${url})"
