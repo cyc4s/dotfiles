@@ -1,1 +1,1 @@
--- Neovim configuration
+require("config.lazy")

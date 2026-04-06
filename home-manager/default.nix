@@ -16,6 +16,7 @@
     nodejs_24
     neovim
     nb
+    ripgrep
   ];
 
   home.sessionPath = [
