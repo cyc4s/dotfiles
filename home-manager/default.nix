@@ -19,6 +19,8 @@
     ripgrep
     lazygit
     gcc
+    wslu
+    gh
   ];
 
   home.sessionPath = [

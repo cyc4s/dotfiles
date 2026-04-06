@@ -18,6 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- LazyVim extras
+    { import = "lazyvim.plugins.extras.util.octo" },
     -- lua/plugins/ 直下の .lua ファイルを自動読み込み
     { import = "plugins" },
     -- lua/plugins/base/ 配下を自動読み込み（nb 連携等）
