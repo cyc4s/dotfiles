@@ -22,6 +22,8 @@ require("lazy").setup({
     { import = "plugins" },
     -- lua/plugins/base/ 配下を自動読み込み（nb 連携等）
     { import = "plugins.base" },
+    -- lua/plugins/editor/ 配下を自動読み込み（git 連携等）
+    { import = "plugins.editor" },
   },
   defaults = {
     lazy = false,

@@ -17,6 +17,7 @@
     neovim
     nb
     ripgrep
+    lazygit
     gcc
   ];
 
