@@ -15,5 +15,6 @@ in
   # ~/直下のドットファイル
   home.file = {
     ".nbrc".source = mkLink "nb/.nbrc";
+    ".tmux.conf".source = mkLink ".tmux.conf";
   };
 }

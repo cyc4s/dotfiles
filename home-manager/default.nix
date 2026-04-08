@@ -21,6 +21,7 @@
     gcc
     wslu
     gh
+    tmux
   ];
 
   home.sessionPath = [
