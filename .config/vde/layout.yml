@@ -1,0 +1,17 @@
+presets:
+  dev:
+    name: Dev Workspace
+    description: editor, terminal, lazygit
+    layout:
+      type: horizontal
+      ratio: [3, 2]
+      panes:
+        - name: editor
+          command: nvim
+          focus: true
+        - type: vertical
+          ratio: [7, 3]
+          panes:
+            - name: git
+              command: lazygit
+            - name: terminal

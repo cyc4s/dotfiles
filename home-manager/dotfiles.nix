@@ -10,6 +10,8 @@ in
   xdg.configFile = {
     "starship.toml".source = mkLink "starship.toml";
     "nvim".source = mkLink "nvim";
+    "vde/layout.yml".source = mkLink ".config/vde/layout.yml";
+    "mise/config.toml".source = mkLink ".config/mise/config.toml";
   };
 
   # ~/直下のドットファイル

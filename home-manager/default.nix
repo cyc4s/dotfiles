@@ -22,6 +22,7 @@
     wslu
     gh
     tmux
+    mise
   ];
 
   home.sessionPath = [
