@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local workspace = require("workspace")
 
 -- WSL の既定ディストリビューションをデフォルトで開く
 local success, stdout = wezterm.run_child_process({ "wsl.exe", "-l", "-q" })
@@ -42,10 +43,15 @@ end)
 -- Leader key
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 
--- Leader キー押下時にステータスバーに表示
+-- ステータスバー（ワークスペース名 + Leader 表示）
 wezterm.on("update-right-status", function(window)
+  local workspace = window:active_workspace()
   local leader = window:leader_is_active() and " LEADER " or ""
+
   window:set_right_status(wezterm.format({
+    { Foreground = { Color = "#c8d3f5" } },
+    { Background = { Color = "#3b4261" } },
+    { Text = " " .. workspace .. " " },
     { Foreground = { Color = "#1d1f21" } },
     { Background = { Color = "#f0c674" } },
     { Text = leader },
@@ -84,5 +90,8 @@ config.keys = {
   { key = "RightArrow", mods = "CTRL", action = act.SendKey({ key = "f", mods = "META" }) },
   { key = "Backspace", mods = "CTRL", action = act.SendKey({ key = "w", mods = "CTRL" }) },
 }
+
+-- ワークスペース
+workspace.apply_to_config(config)
 
 return config
